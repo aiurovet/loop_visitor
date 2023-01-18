@@ -17,6 +17,10 @@ class VisitParams<T> {
   ///
   dynamic extra;
 
+  /// Flag indicating that this is the first iteration (call)
+  ///
+  bool get isFirst => (currentNo == 1);
+
   /// Flag indicating that the handler was called synchronously
   ///
   var isSyncCall = false;

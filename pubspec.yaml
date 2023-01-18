@@ -1,6 +1,6 @@
 name: loop_visitor
 description: A way to loop through entities calling a user-defined handler on every iteration and process returned result
-version: 0.1.0
+version: 0.1.1
 homepage: https://aiurovet.blogspot.com/
 repository: https://github.com/aiurovet/loop_visitor/
 
