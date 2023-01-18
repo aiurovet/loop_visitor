@@ -6,19 +6,19 @@
 /// entites like each line in a stream or a file list element
 ///
 enum VisitResult {
-  // Accept the result of processing and continue the loop
-  //
+  /// Accept the result of processing and continue the loop
+  ///
   take,
 
-  // Accept the result of processing and continue the loop
-  //
+  /// Accept the result of processing and continue the loop
+  ///
   takeAndStop,
 
-  // Ignore the result of processing and stop the loop
-  //
+  /// Ignore the result of processing and stop the loop
+  ///
   skip,
 
-  // Ignore the result of processing and stop the loop
-  //
+  /// Ignore the result of processing and stop the loop
+  ///
   skipAndStop,
 }

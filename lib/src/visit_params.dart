@@ -25,7 +25,7 @@ class VisitParams<T> {
   ///
   var isSyncCall = false;
 
-  /// Number of entities taken (not skipped) already
+  /// Number of entities taken (not skipped) already.\
   /// Normally, this should exclude the current one, though not required
   ///
   var takenNo = 0;
