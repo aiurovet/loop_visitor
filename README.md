@@ -93,12 +93,11 @@ Future<int> getTopFiles(FileSystem fs, String dirName, List<String> pileup,
       }
     }
 
-    if ((result == VisitResult.take) || (result == VisitResult.takeAndStop)) {
+    if (result.isTake) {
       ++params.takenNo;
     }
 
-    if ((result == VisitResult.takeAndStop) ||
-        (result == VisitResult.skipAndStop)) {
+    if (result.isStop) {
       break;
     }
   }
@@ -127,12 +126,11 @@ int getTopFilesSync(FileSystem fs, String dirName, List<String> pileup,
       result = handler(params);
     }
 
-    if ((result == VisitResult.take) || (result == VisitResult.takeAndStop)) {
+    if (result.isTake) {
       ++params.takenNo;
     }
 
-    if ((result == VisitResult.takeAndStop) ||
-        (result == VisitResult.skipAndStop)) {
+    if (result.isStop) {
       break;
     }
   }

@@ -20,5 +20,17 @@ enum VisitResult {
 
   /// Ignore the result of processing and stop the loop
   ///
-  skipAndStop,
+  skipAndStop;
+
+  /// Flag indicating the result should be taken
+  ///
+  bool get isTake => ((this == take) || (this == takeAndStop));
+
+  /// Flag indicating the result should be skipped
+  ///
+  bool get isSkip => ((this == skip) || (this == skipAndStop));
+
+  /// Flag indicating immediate stop is required
+  ///
+  bool get isStop => ((this == takeAndStop) || (this == skipAndStop));
 }
