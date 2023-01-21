@@ -1,3 +1,7 @@
+## 0.2.1
+
+- Additional publish for the previously missed commit
+
 ## 0.2.0
 
 - Added getter properties isTake, isSkip and isStop for ViewResult
