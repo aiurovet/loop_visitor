@@ -39,13 +39,13 @@ VisitResult filterFiles(VisitParams<DirEntryInfo> params) {
   final takenNo = params.takenNo + 1;
   print('$takenNo: ${entity.path}');
 
-  final pileup = params.extra as List<String>;
+  final pileup = params.pileup as List<String>?;
 
   if (params.currentNo <= 1) {
-    pileup.clear();
+    pileup?.clear();
   }
 
-  pileup.add(entity.path);
+  pileup?.add(entity.path);
 
   return (takenNo >= DirEntryInfo.limit
       ? VisitResult.takeAndStop
@@ -60,7 +60,7 @@ Future<int> getTopFiles(FileSystem fs, String dirName, List<String> pileup,
   var result = VisitResult.take;
   var params = VisitParams<DirEntryInfo>(
       current: myEntity,
-      extra: pileup,
+      pileup: pileup,
       isSyncCall: (handler is VisitHandlerSync));
 
   var dirList = fs.directory(dirName).list();
@@ -99,7 +99,7 @@ int getTopFilesSync(FileSystem fs, String dirName, List<String> pileup,
   var myEntity = DirEntryInfo();
   var result = VisitResult.take;
   var params = VisitParams<DirEntryInfo>(
-      current: myEntity, extra: pileup, isSyncCall: true);
+      current: myEntity, pileup: pileup, isSyncCall: true);
 
   var dirList = fs.directory(dirName).listSync();
 

@@ -1,3 +1,7 @@
+## 0.3.0
+
+- Added the new property: `VisitParams.pileup`
+
 ## 0.2.1
 
 - Additional publish for the previously missed commit

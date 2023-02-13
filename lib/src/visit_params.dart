@@ -12,8 +12,7 @@ class VisitParams<T> {
   ///
   var currentNo = 0;
 
-  /// Extra parameter\
-  /// For instance, a cumulative list of processed entities
+  /// Extra parameter like the output file info: File object, opened IOSink
   ///
   dynamic extra;
 
@@ -25,6 +24,11 @@ class VisitParams<T> {
   ///
   var isSyncCall = false;
 
+  /// Accumulator: could be a growing buffer or a list of lines
+  /// read from the input file, or a list of dir entries visited
+  ///
+  dynamic pileup;
+
   /// Number of entities taken (not skipped) already.\
   /// Normally, this should exclude the current one, though not required
   ///
@@ -32,5 +36,5 @@ class VisitParams<T> {
 
   /// Constructor
   ///
-  VisitParams({this.current, this.extra, this.isSyncCall = false});
+  VisitParams({this.current, this.extra, this.pileup, this.isSyncCall = false});
 }

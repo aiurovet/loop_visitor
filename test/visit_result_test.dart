@@ -9,7 +9,7 @@ extension TestStream<T> on Stream<T> {
   ///
   Future<void> forEachOf({List<T>? pileup, VisitHandler<T>? handler}) async {
     final params = VisitParams<T>(
-        extra: pileup, isSyncCall: handler is VisitHandlerSync<T>);
+        pileup: pileup, isSyncCall: handler is VisitHandlerSync<T>);
     var result = VisitResult.take;
 
     await for (final x in this) {
@@ -38,7 +38,7 @@ extension TestList<T> on List<T> {
   /// Test method
   ///
   void forEachOfSync({List<T>? pileup, VisitHandlerSync? handler}) {
-    final params = VisitParams(extra: pileup, isSyncCall: true);
+    final params = VisitParams(pileup: pileup, isSyncCall: true);
     var result = VisitResult.take;
 
     any((x) {
