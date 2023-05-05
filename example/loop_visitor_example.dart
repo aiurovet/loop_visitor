@@ -27,7 +27,12 @@ class DirEntryInfo {
 
 /// Filter (non-blocking)
 ///
-VisitResult filterFiles(VisitParams<DirEntryInfo> params) {
+Future<VisitResult> filterFiles(VisitParams<DirEntryInfo> params) async =>
+    filterFilesSync(params);
+
+/// Filter (non-blocking)
+///
+VisitResult filterFilesSync(VisitParams<DirEntryInfo> params) {
   final myEntity = params.current;
   final entity = myEntity?.entity;
   final type = myEntity?.type;
@@ -146,7 +151,7 @@ Future<void> main(List<String> args) async {
 ''');
 
     if (isSync) {
-      count = getTopFilesSync(fs, arg, pileup, filterFiles);
+      count = getTopFilesSync(fs, arg, pileup, filterFilesSync);
     } else {
       count = await getTopFiles(fs, arg, pileup, filterFiles);
     }

@@ -74,7 +74,7 @@ void main() {
     test('Full simple loop', () async {
       var count = 0;
 
-      await stream!.forEachOf(handler: (params) {
+      await stream!.forEachOf(handler: (params) async {
         ++count;
         return VisitResult.take;
       });
@@ -97,7 +97,7 @@ void main() {
 
       await stream!.forEachOf(
           pileup: pileup,
-          handler: (params) {
+          handler: (params) async {
             if (params.currentNo <= 1) {
               pileup.clear();
             }
@@ -110,7 +110,7 @@ void main() {
     test('Partial simple loop', () async {
       var count = 0;
 
-      await stream!.forEachOf(handler: (params) {
+      await stream!.forEachOf(handler: (params) async {
         ++count;
 
         return (count >= 2 ? VisitResult.takeAndStop : VisitResult.take);
@@ -124,7 +124,7 @@ void main() {
 
       await stream!.forEachOf(
           pileup: pileup,
-          handler: (params) {
+          handler: (params) async {
             ++count;
             if (params.currentNo <= 1) {
               pileup.clear();
