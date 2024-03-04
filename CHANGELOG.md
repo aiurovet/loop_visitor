@@ -1,3 +1,11 @@
+## 0.4.2
+
+- Moved comments
+
+## 0.4.1
+
+- Upgraded packages
+
 ## 0.4.0
 
 - Breaking: ditching FutureOr
